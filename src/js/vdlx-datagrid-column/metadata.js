@@ -312,30 +312,6 @@ export default {
                     description: 'All table data'
                 }
             ]
-        },
-        // {
-        //     name: 'cellMouseEnter',
-        //     acceptsExpression: true,
-        //     description: 'The cellMouseEnter',
-        //     expressionVars: [
-        //         {
-        //             name: 'values',
-        //             type: '(string|boolean|number)',
-        //             description:
-        //                 'The value of the tooltip'
-        //         },
-        //         {
-        //             name: 'data',
-        //             type: 'string',
-        //             description: 'All table data'
-        //         },
-        //         {
-        //             name: 'cellMouseEnter',
-        //             type: 'Array.<(string|boolean|number|)>',
-        //             description: 'params passed from the column definition object'
-        //         }
-        //     ]
-        // },
-        
+        }
     ]
 };
