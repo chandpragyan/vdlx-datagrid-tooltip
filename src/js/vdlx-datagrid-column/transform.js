@@ -28,7 +28,7 @@ import get from 'lodash/get';
 
 import metadata from './metadata';
 import {withDefaultValue, getAttributeMetadata, validateAllowedValues} from '../transform-utils';
-import { enums, dataUtils } from '../insight-modules';
+import { $, enums, dataUtils } from '../insight-modules';
 
 const COLUMN_TYPES = {
     ENTITY: 'ENTITY',
@@ -301,4 +301,39 @@ export default (element, attributes, api) => {
         paramsBuilder.addParam('sortDirection', sortDirection.rawValue, false);
     }
 
+    //Added attribute for cell tooltip
+
+    var tooltip = attributes['tooltip'];
+        if (tooltip) {
+            paramsBuilder.addParam('tooltip', tooltip.expression.value, true);
+        }
+    
+     //Added attributes for header tooltip
+
+    var headerTooltip = attributes['headerTooltip'];
+    if (headerTooltip) {
+           paramsBuilder.addRawOrExpressionParam('headerTooltip', headerTooltip);
+    }
+
+    var cellTooltipFunc = attributes['cellTooltipFunc'];
+    if (cellTooltipFunc) {
+    if (cellTooltipFunc.expression.isString) {
+        throw Error('Render parameter has to be an expression');
+    }
+    paramsBuilder.addFunctionOrExpressionParam('cellTooltipFunc', cellTooltipFunc.expression.value, [
+        'entity',
+        'data'
+    ]);
+}
+    var headerTooltipFunc = attributes['headerTooltipFunc'];
+    if (headerTooltipFunc) {
+    if (headerTooltipFunc.expression.isString) {
+
+        throw Error('Render parameter has to be an expression');
+    }
+    paramsBuilder.addFunctionOrExpressionParam('headerTooltipFunc', headerTooltipFunc.expression.value, [
+        'entity',
+        'data'
+    ]);
+    }
 };

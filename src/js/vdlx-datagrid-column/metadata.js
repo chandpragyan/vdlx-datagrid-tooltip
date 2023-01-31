@@ -225,6 +225,117 @@ export default {
                 allowedValues: ['asc', 'desc']
             },
             description: 'The direction the column data should be sorted in.'
-        }
+        },
+        { 
+            name: 'formatter',
+            valueType: 'string',
+            description: 'To add the formatting type for the column'
+        },
+        {
+            name: 'tooltip',
+            acceptsExpression: true,
+            description: 'The tooltip on the cell hover over',
+            expressionVars: [
+                {
+                    name: 'values',
+                    type: '(string|boolean|number)',
+                    description:
+                        'The value of the tooltip'
+                },
+                {
+                    name: 'data',
+                    type: 'string',
+                    description: 'All table data'
+                },
+                {
+                    name: 'tooltipParams',
+                    type: 'Array.<(string|boolean|number|)>',
+                    description: 'params passed from the column definition object'
+                }
+            ]
+        },
+        { 
+            name: 'headerTooltip',
+            acceptsExpression: true,
+            description: 'The tooltip on the column header',
+            expressionVars: [
+                {
+                    name: 'value',
+                    type: '(string|boolean|number|function)',
+                    description:
+                        'The value of the tooltip column'
+                },
+                {
+                    name: 'data',
+                    type: 'string',
+                    description: 'All table data'
+                },
+                {
+                    name: 'headerTooltipParams',
+                    type: 'Array.<(string|boolean|number)>',
+                    description: 'params passed from the column definition object'
+                }
+            ]
+        },
+        {
+            name:'cellTooltipFunc',
+            acceptsExpression: true,
+            description: 'To send some random parameters as per requirement',
+            expressionVars: [
+                {
+                    name: 'entity',
+                    type: '(string|boolean|number|function)',
+                    description:
+                        'The value of the tooltip column'
+                },
+                {
+                    name: 'data',
+                    type: 'string',
+                    description: 'All table data'
+                }
+            ]
+        },
+        {
+            name:'headerTooltipFunc',
+            acceptsExpression: true,
+            description: 'To send some random parameters as per requirement',
+            expressionVars: [
+                {
+                    name: 'entity',
+                    type: '(string|boolean|number|function)',
+                    description:
+                        'The value of the tooltip column'
+                },
+                {
+                    name: 'data',
+                    type: 'string',
+                    description: 'All table data'
+                }
+            ]
+        },
+        // {
+        //     name: 'cellMouseEnter',
+        //     acceptsExpression: true,
+        //     description: 'The cellMouseEnter',
+        //     expressionVars: [
+        //         {
+        //             name: 'values',
+        //             type: '(string|boolean|number)',
+        //             description:
+        //                 'The value of the tooltip'
+        //         },
+        //         {
+        //             name: 'data',
+        //             type: 'string',
+        //             description: 'All table data'
+        //         },
+        //         {
+        //             name: 'cellMouseEnter',
+        //             type: 'Array.<(string|boolean|number|)>',
+        //             description: 'params passed from the column definition object'
+        //         }
+        //     ]
+        // },
+        
     ]
 };
