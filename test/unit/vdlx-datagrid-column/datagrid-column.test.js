@@ -36,7 +36,7 @@ describe('columnConfig module', () => {
 			});
 			
 			it('tooltip when field is defined', () => {
-				var expectedValue = "SUM(Unit Penalty): 20000\nFacility: DC 10";
+				var expectedValue = "SUM(Unit Penalty): 20000Facility: DC 10";
 				let expectedEntityName = 'demand_facility';
 				params.tooltip = true;
 				params.cellTooltipFunc = function(){
@@ -49,7 +49,7 @@ describe('columnConfig module', () => {
 			});
 
 			it('tooltip when field is blank', () => {
-				var expectedValue = "SUM(Unit Penalty): 20000\nFacility: N/A";
+				var expectedValue = "SUM(Unit Penalty): 20000Facility: N/A";
 				let expectedEntityName = 'demand_facility';
 				params.tooltip = true;
 				params.cellTooltipFunc = function(){

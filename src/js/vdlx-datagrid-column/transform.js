@@ -310,12 +310,12 @@ export default (element, attributes, api) => {
     
      //Added attributes for header tooltip
 
-    var headerTooltip = attributes['headerTooltip'];
+    var headerTooltip = attributes['header-tooltip'];
     if (headerTooltip) {
            paramsBuilder.addRawOrExpressionParam('headerTooltip', headerTooltip);
     }
 
-    var cellTooltipFunc = attributes['cellTooltipFunc'];
+    var cellTooltipFunc = attributes['cell-tooltip-func'];
     if (cellTooltipFunc) {
     if (cellTooltipFunc.expression.isString) {
         throw Error('Render parameter has to be an expression');
@@ -325,10 +325,9 @@ export default (element, attributes, api) => {
         'data'
     ]);
 }
-    var headerTooltipFunc = attributes['headerTooltipFunc'];
+    var headerTooltipFunc = attributes['header-tooltip-func'];
     if (headerTooltipFunc) {
     if (headerTooltipFunc.expression.isString) {
-
         throw Error('Render parameter has to be an expression');
     }
     paramsBuilder.addFunctionOrExpressionParam('headerTooltipFunc', headerTooltipFunc.expression.value, [

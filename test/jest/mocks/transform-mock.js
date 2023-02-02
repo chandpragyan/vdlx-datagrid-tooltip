@@ -1,3 +1,4 @@
+import './console-globals'
 export const paramsBuilder = {
   element: {
     params: {
@@ -28,58 +29,53 @@ export const paramsBuilder = {
     return true;
   },
 };
-
 export const cellAttribute = {
-  entity: {
-    rawValue: "demand_product",
-    expression: {
-      value: '"demand_product"',
-      isString: true,
-    },
+  "entity": {
+      "rawValue": "demand_product",
+      "expression": {
+          "value": "\"demand_product\"",
+          "isString": true
+      }
   },
-  tooltip: {
-    rawValue: "true",
-    expression: {
-      value: '"true"',
-      isString: true,
-    },
+  "tooltip": {
+      "rawValue": "=true",
+      "expression": {
+          "value": "true",
+          "isString": false
+      }
   },
-  cellTooltipFunc: {
-    rawValue:
-      "=displayCellTooltip({entityWithCal:['demand_unit_penal', 'demand_max'], cal:['sum','max'], entityWithVal:['demand_period','demand_max', 'demand_basis']})",
-    expression: {
-      value:
-        "displayCellTooltip({\n    entityWithCal: [\n        'demand_unit_penal',\n        'demand_max'\n    ],\n    cal: [\n        'sum',\n        'max'\n    ],\n    entityWithVal: [\n        'demand_period',\n        'demand_max',\n        'demand_basis'\n    ]\n})",
-      isString: false,
-    },
-  },
+  "cell-tooltip-func": {
+      "rawValue": "=displayCellTooltip({entityWithCal:['demand_unit_penal', 'demand_max'], cal:['sum','max'], entityWithVal:['demand_period','demand_max', 'demand_basis']})",
+      "expression": {
+          "value": "displayCellTooltip({\n    entityWithCal: [\n        'demand_unit_penal',\n        'demand_max'\n    ],\n    cal: [\n        'sum',\n        'max'\n    ],\n    entityWithVal: [\n        'demand_period',\n        'demand_max',\n        'demand_basis'\n    ]\n})",
+          "isString": false
+      }
+  }
 };
 export const headerAttribute = {
-  entity: {
-    rawValue: "demand_max",
-    expression: {
-      value: '"demand_max"',
-      isString: true,
-    },
+  "entity": {
+      "rawValue": "demand_max",
+      "expression": {
+          "value": "\"demand_max\"",
+          "isString": true
+      }
   },
-  headerTooltip: {
-    rawValue: "=true",
-    expression: {
-      value: "true",
-      isString: false,
-    },
+  "header-tooltip": {
+      "rawValue": "=true",
+      "expression": {
+          "value": "true",
+          "isString": false
+      }
   },
-  headerTooltipFunc: {
-    rawValue:
-      "=displayHeaderTooltip({entityWithCal:'demand_unit_penal', cal:['sum','min']})",
-    expression: {
-      value:
-        "displayHeaderTooltip({\n    entityWithCal: 'demand_unit_penal',\n    cal: [\n        'sum',\n        'min'\n    ]\n})",
-      isString: false,
-    },
-  },
-};
-export const cellElement = `<vdlx-datagrid><vdlx-datagrid-column entity="demand_product" heading="Product" tooltip="true" celltooltipfunc="=displayCellTooltip({entityWithCal:['demand_unit_penal', 'demand_max'], cal:['sum','max'], entityWithVal:['demand_period','demand_max', 'demand_basis']})" editor-options-set="PRODUCT_DISPLAY_NAMES" editable="true" params="{&quot;addColumn&quot;:($component.addColumn), &quot;removeColumn&quot;:($component.removeColumn), &quot;tableValidate&quot;:($component.tableValidate), &quot;entity&quot;:&quot;demand_product&quot;, &quot;editable&quot;:&quot;true&quot;, &quot;editorOptionsSet&quot;:&quot;PRODUCT_DISPLAY_NAMES&quot;, &quot;heading&quot;:&quot;Product&quot;, &quot;tooltip&quot;:(&quot;true&quot;), &quot;cellTooltipFunc&quot;:(function (entity, data) {
+  "header-tooltip-func": {
+      "rawValue": "=displayHeaderTooltip({entityWithCal:'demand_unit_penal', cal:['sum','min']})",
+      "expression": {
+          "value": "displayHeaderTooltip({\n    entityWithCal: 'demand_unit_penal',\n    cal: [\n        'sum',\n        'min'\n    ]\n})",
+          "isString": false
+      }
+  }
+}
+export const cellElement = `<vdlx-datagrid><vdlx-datagrid-column entity="demand_product" heading="Product" tooltip="true" cell-tooltip-func="=displayCellTooltip({entityWithCal:['demand_unit_penal', 'demand_max'], cal:['sum','max'], entityWithVal:['demand_period','demand_max', 'demand_basis']})" editor-options-set="PRODUCT_DISPLAY_NAMES" editable="true" params="{&quot;addColumn&quot;:($component.addColumn), &quot;removeColumn&quot;:($component.removeColumn), &quot;tableValidate&quot;:($component.tableValidate), &quot;entity&quot;:&quot;demand_product&quot;, &quot;editable&quot;:&quot;true&quot;, &quot;editorOptionsSet&quot;:&quot;PRODUCT_DISPLAY_NAMES&quot;, &quot;heading&quot;:&quot;Product&quot;, &quot;tooltip&quot;:(&quot;true&quot;), &quot;cellTooltipFunc&quot;:(function (entity, data) {
 return displayCellTooltip({
     entityWithCal: [
         'demand_unit_penal',
@@ -96,7 +92,7 @@ return displayCellTooltip({
     ]
 });
 })}"></vdlx-datagrid-column></vdlx-datagrid>`;
-export const headerElement = `<vdlx-datagrid><vdlx-datagrid-column entity="demand_product" heading="Product" tooltip="true" celltooltipfunc="=displayCellTooltip({entityWithCal:['demand_unit_penal', 'demand_max'], cal:['sum','max'], entityWithVal:['demand_period','demand_max', 'demand_basis']})" editor-options-set="PRODUCT_DISPLAY_NAMES" params="{&quot;addColumn&quot;:($component.addColumn), &quot;removeColumn&quot;:($component.removeColumn), &quot;tableValidate&quot;:($component.tableValidate), &quot;entity&quot;:&quot;demand_product&quot;, &quot;editable&quot;:&quot;true&quot;, &quot;editorOptionsSet&quot;:&quot;PRODUCT_DISPLAY_NAMES&quot;, &quot;heading&quot;:&quot;Product&quot;, &quot;tooltip&quot;:(&quot;true&quot;), &quot;cellTooltipFunc&quot;:(function (entity, data) {
+export const headerElement = `<vdlx-datagrid><vdlx-datagrid-column entity="demand_product" heading="Product" tooltip="true" header-tooltip-func="=displayCellTooltip({entityWithCal:['demand_unit_penal', 'demand_max'], cal:['sum','max'], entityWithVal:['demand_period','demand_max', 'demand_basis']})" editor-options-set="PRODUCT_DISPLAY_NAMES" params="{&quot;addColumn&quot;:($component.addColumn), &quot;removeColumn&quot;:($component.removeColumn), &quot;tableValidate&quot;:($component.tableValidate), &quot;entity&quot;:&quot;demand_product&quot;, &quot;editable&quot;:&quot;true&quot;, &quot;editorOptionsSet&quot;:&quot;PRODUCT_DISPLAY_NAMES&quot;, &quot;heading&quot;:&quot;Product&quot;, &quot;tooltip&quot;:(&quot;true&quot;), &quot;cellTooltipFunc&quot;:(function (entity, data) {
 return displayCellTooltip({
     entityWithCal: [
         'demand_unit_penal',

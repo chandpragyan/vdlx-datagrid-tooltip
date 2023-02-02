@@ -255,7 +255,7 @@ export default {
             ]
         },
         { 
-            name: 'headerTooltip',
+            name: 'header-tooltip',
             acceptsExpression: true,
             description: 'The tooltip on the column header',
             expressionVars: [
@@ -278,38 +278,26 @@ export default {
             ]
         },
         {
-            name:'cellTooltipFunc',
+            name:'cell-tooltip-func',
             acceptsExpression: true,
-            description: 'To send some random parameters as per requirement',
+            description: 'It must be an expression and resolves as a function, this function should return an array. Basically used to pass required details to display header tooltip',
             expressionVars: [
-                {
-                    name: 'entity',
-                    type: '(string|boolean|number|function)',
-                    description:
-                        'The value of the tooltip column'
-                },
                 {
                     name: 'data',
                     type: 'string',
-                    description: 'All table data'
+                    description: 'Required details for the cell tooltip'
                 }
             ]
         },
         {
-            name:'headerTooltipFunc',
+            name:'header-tooltip-func',
             acceptsExpression: true,
-            description: 'To send some random parameters as per requirement',
+            description: 'It must be an expression and resolves as a function, this function should return a string. Basically used to pass required details to display header tooltip',
             expressionVars: [
-                {
-                    name: 'entity',
-                    type: '(string|boolean|number|function)',
-                    description:
-                        'The value of the tooltip column'
-                },
                 {
                     name: 'data',
                     type: 'string',
-                    description: 'All table data'
+                    description: 'Required details for the header tooltip'
                 }
             ]
         }

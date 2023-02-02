@@ -140,10 +140,10 @@ export const createProps = (columnId, params, filters, element) => {
                     entityWithoutCal.forEach((entity) => {
                         columns.forEach(column => {
                             if (column.getDefinition().name === entity && cell.getData()[column.getField()] != "") {
-                                tooltipString += "\n"+ column.getDefinition().title + ': ' + cell.getData()[column.getField()] 
+                                tooltipString += column.getDefinition().title + ': ' + cell.getData()[column.getField()] +  "\n"
                             }
                             else if (column.getDefinition().name === entity && cell.getData()[column.getField()] == "") {
-                                tooltipString += "\n"+ column.getDefinition().title + ': ' + 'N/A';
+                                tooltipString +=  column.getDefinition().title + ': ' + 'N/A'+ "\n";
                             }
                         });
                     })
