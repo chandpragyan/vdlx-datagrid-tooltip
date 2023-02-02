@@ -76,3 +76,65 @@ Whilst developing vdlx-datagrid:
 ## Building a release
 
 See [RELEASE](./RELEASE.md) for instructions.
+
+
+## Tooltip
+
+Tooltips display informative text when users hover over, focus on, or tap an elements when activated.
+
+There are two differents tooltips can be used inside vdlx-datagrid table
+1. Cell Tooltips - To use cell tooltips `tooltip` attribute to be used in the column 
+2. Column Header Tooltips - To use column header tooltip `headerTooltip` attribute to be used in the column 
+
+# How to use tooltip in insight app
+
+`tooltip` can generally be used for displaying details in cell on mousehover. For example:
+
+```html
+  <vdlx-datagrid-column entity="demand_facility" heading="Facility" tooltip="This is tooltip test for strings" visible="false" editor-options-set="FACILITY_DISPLAY_NAMES" editable="true"></vdlx-datagrid-column>
+  ````
+
+NOTE:- To display any aggregate values or other entity values for the same cell should use another attribute `cellTooltipFunc`
+
+`cellTooltipFunc` is the attribute that takes any user defined function but in return it should get the calculated string and the array of entities for which the user wants to display the values in the cell.
+
+For example :-
+
+```
+<script>
+function displayCellTooltip(){
+    return [calculatedStrings, ['demand_period','demand_max', 'demand_basis']]
+}
+</script>
+```
+
+```html
+<vdlx-datagrid-column entity="demand_product" heading="Product" tooltip="true" cellTooltipFunc="=displayCellTooltip()"
+                            editor-options-set="PRODUCT_DISPLAY_NAMES" editable="true"></vdlx-datagrid-column>
+```
+
+
+`headerTooltip` can generally be used for displaying details in cell on mousehover. For example:
+
+
+```html
+  <vdlx-datagrid-column entity="demand_max" heading="Max Demand" headerTooltip="This is headerTooltip test" headerTooltipFunc="=displayHeaderTooltip({entityWithCal:'demand_unit_penal', cal:['sum','min']})" editable="true" bottom-calc="sum"></vdlx-datagrid-column>
+  ````
+
+NOTE:- For displaying aggregate values for the column in header tooltip `headerTooltipFunc` attribute to be used
+
+`headerTooltipFunc` is the attribute that takes any user defined function but in return it should get the calculated string.
+
+For example :-
+
+```
+<script>
+function displayHeaderTooltip(){
+    return calculatedStrings;
+}
+</script>
+```
+
+```html
+<vdlx-datagrid-column entity="demand_product" heading="Product" tooltip="true" cellTooltipFunc="=displayHeaderTooltip()"
+                            editor-options-set="PRODUCT_DISPLAY_NAMES" editable="true"></vdlx-datagrid-column>
