@@ -109,8 +109,14 @@ function displayCellTooltip(){
 ```
 
 ```html
-<vdlx-datagrid-column entity="demand_product" heading="Product" tooltip="true" cellTooltipFunc="=displayCellTooltip()"
-                            editor-options-set="PRODUCT_DISPLAY_NAMES" editable="true"></vdlx-datagrid-column>
+<vdlx-datagrid-column 
+    entity="demand_product" 
+    heading="Product" 
+    tooltip="true" 
+    cellTooltipFunc="=displayCellTooltip()"
+    editor-options-set="PRODUCT_DISPLAY_NAMES" 
+    editable="true">
+</vdlx-datagrid-column>
 ```
 
 
@@ -118,7 +124,14 @@ function displayCellTooltip(){
 
 
 ```html
-  <vdlx-datagrid-column entity="demand_max" heading="Max Demand" headerTooltip="This is headerTooltip test" headerTooltipFunc="=displayHeaderTooltip({entityWithCal:'demand_unit_penal', cal:['sum','min']})" editable="true" bottom-calc="sum"></vdlx-datagrid-column>
+  <vdlx-datagrid-column 
+    entity="demand_max" 
+    heading="Max Demand" 
+    headerTooltip="This is headerTooltip test" 
+    headerTooltipFunc="=displayHeaderTooltip({entityWithCal:'demand_unit_penal', cal:['sum','min']})" 
+    editable="true" 
+    bottom-calc="sum">
+</vdlx-datagrid-column>
   ````
 
 NOTE:- For displaying aggregate values for the column in header tooltip `headerTooltipFunc` attribute to be used
