@@ -128,7 +128,7 @@ function displayCellTooltip(){
     entity="demand_max" 
     heading="Max Demand" 
     headerTooltip="This is headerTooltip test" 
-    headerTooltipFunc="=displayHeaderTooltip({entityWithCal:'demand_unit_penal', cal:['sum','min']})" 
+    headerTooltipFunc="=displayHeaderTooltip()" 
     editable="true" 
     bottom-calc="sum">
 </vdlx-datagrid-column>
