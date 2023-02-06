@@ -7,6 +7,7 @@ import defer from 'lodash/defer';
 import throttle from 'lodash/throttle';
 
 export const createProps = (columnId, params, filters, element) => {
+    console.log(params);
     var props = {
         scenario: params.scenario,
         title: params.heading,
@@ -26,9 +27,7 @@ export const createProps = (columnId, params, filters, element) => {
         sortOrder: params.sortOrder,
         sortDirection: params.sortDirection,
         tooltip: params.tooltip,
-        headerTooltip: params.headerTooltip,
-        cellTooltipFunc: params.cellTooltipFunc,
-        headerTooltipFunc: params.headerTooltipFunc,
+        headerTooltip: params.headerTooltip
     };
     if (params.bottomCalc) {
         props.bottomCalcFormatter = function (data) {
@@ -47,12 +46,6 @@ export const createProps = (columnId, params, filters, element) => {
     }
     if (isFunction(params.render)) {
         props.render = params.render;
-    }
-    if (params.cellTooltipFunc) {
-        props.cellTooltipFunc = params.cellTooltipFunc();
-    }
-    if (params.headerTooltipFunc) {
-        props.headerTooltipFunc = params.headerTooltipFunc();
     }
     if (params.format) {
         props.render = (data, type) => {
@@ -125,47 +118,11 @@ export const createProps = (columnId, params, filters, element) => {
             return validationObservable.peek();
         };
     }
-    if (params.tooltip) {
-        props.tooltip = function tooltip(cell) {
-            let columns = cell.getTable().getColumns();
-            let tooltipString = '';
-            if (params.tooltip == true && !(params.cellTooltipFunc)) {
-                let cellValue = cell.getColumn().getDefinition().title + ": " + cell.getData()[cell.getColumn().getField()] + ' '
-                return cellValue;
-            } else if (params.tooltip == true && (params.cellTooltipFunc)) {
-                let entities = params.cellTooltipFunc();
-                let tooltipString = entities[0]
-                let entityWithoutCal = entities[1];
-                if(entityWithoutCal){
-                    entityWithoutCal.forEach((entity) => {
-                        columns.forEach(column => {
-                            if (column.getDefinition().name === entity && cell.getData()[column.getField()] != "") {
-                                tooltipString += column.getDefinition().title + ': ' + cell.getData()[column.getField()] +  "\n"
-                            }
-                            else if (column.getDefinition().name === entity && cell.getData()[column.getField()] == "") {
-                                tooltipString +=  column.getDefinition().title + ': ' + 'N/A'+ "\n";
-                            }
-                        });
-                    })
-                }
-                return tooltipString;
-            } else {
-                return params.tooltip
-            }
-        }
+    if(isFunction(params.tooltip)) {
+        props.tooltip = params.tooltip
     }
-    if (params.headerTooltip) {
-        props.headerTooltip = function headerTooltip(cell) {
-            if (params.headerTooltip == true && !(params.headerTooltipFunc)) {
-                let cellValue = cell.getDefinition().title;
-                return cellValue;
-            } else if (params.headerTooltip == true && (params.headerTooltipFunc)) {
-                var entities = params.headerTooltipFunc();
-                return entities;
-            } else {
-                return params.headerTooltip
-            }
-        }
+    if(isFunction(params.headerTooltip)) {
+        props.headerTooltip = params.headerTooltip
     }
     return props;
 };

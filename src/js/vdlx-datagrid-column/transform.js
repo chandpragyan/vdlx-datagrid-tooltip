@@ -302,37 +302,20 @@ export default (element, attributes, api) => {
     }
 
     //Added attribute for cell tooltip
-
     var tooltip = attributes['tooltip'];
-        if (tooltip) {
-            paramsBuilder.addParam('tooltip', tooltip.expression.value, true);
+    if (tooltip) {
+        if (tooltip.expression.isString) {
+            paramsBuilder.addParam('tooltip', tooltip.rawValue, false);
         }
+        paramsBuilder.addFunctionOrExpressionParam('tooltip', tooltip.expression.value, ['cell']);
+    }
     
      //Added attributes for header tooltip
-
     var headerTooltip = attributes['header-tooltip'];
     if (headerTooltip) {
-           paramsBuilder.addRawOrExpressionParam('headerTooltip', headerTooltip);
-    }
-
-    var cellTooltipFunc = attributes['cell-tooltip-func'];
-    if (cellTooltipFunc) {
-    if (cellTooltipFunc.expression.isString) {
-        throw Error('Render parameter has to be an expression');
-    }
-    paramsBuilder.addFunctionOrExpressionParam('cellTooltipFunc', cellTooltipFunc.expression.value, [
-        'entity',
-        'data'
-    ]);
-}
-    var headerTooltipFunc = attributes['header-tooltip-func'];
-    if (headerTooltipFunc) {
-    if (headerTooltipFunc.expression.isString) {
-        throw Error('Render parameter has to be an expression');
-    }
-    paramsBuilder.addFunctionOrExpressionParam('headerTooltipFunc', headerTooltipFunc.expression.value, [
-        'entity',
-        'data'
-    ]);
+        if (headerTooltip.expression.isString) {
+            paramsBuilder.addParam('headerTooltip', headerTooltip.rawValue, false);
+        }
+        paramsBuilder.addFunctionOrExpressionParam('headerTooltip', headerTooltip.expression.value, ['column']);
     }
 };

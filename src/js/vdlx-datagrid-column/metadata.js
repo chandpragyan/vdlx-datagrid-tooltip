@@ -218,88 +218,42 @@ export default {
             'number provides the order in which sorting should be applied to the columns, so the highest number will result in ' +
             'the column having sorting applied last.'
     },
-        {
-            name: 'sort-direction',
-            defaultValue: 'asc',
-            validation: {
-                allowedValues: ['asc', 'desc']
-            },
-            description: 'The direction the column data should be sorted in.'
+    {
+        name: 'sort-direction',
+        defaultValue: 'asc',
+        validation: {
+            allowedValues: ['asc', 'desc']
         },
-        { 
-            name: 'formatter',
-            valueType: 'string',
-            description: 'To add the formatting type for the column'
-        },
-        {
-            name: 'tooltip',
-            acceptsExpression: true,
-            description: 'The tooltip on the cell hover over',
-            expressionVars: [
-                {
-                    name: 'values',
-                    type: '(string|boolean|number)',
-                    description:
-                        'The value of the tooltip'
-                },
-                {
-                    name: 'data',
-                    type: 'string',
-                    description: 'All table data'
-                },
-                {
-                    name: 'tooltipParams',
-                    type: 'Array.<(string|boolean|number|)>',
-                    description: 'params passed from the column definition object'
-                }
-            ]
-        },
-        { 
-            name: 'header-tooltip',
-            acceptsExpression: true,
-            description: 'The tooltip on the column header',
-            expressionVars: [
-                {
-                    name: 'value',
-                    type: '(string|boolean|number|function)',
-                    description:
-                        'The value of the tooltip column'
-                },
-                {
-                    name: 'data',
-                    type: 'string',
-                    description: 'All table data'
-                },
-                {
-                    name: 'headerTooltipParams',
-                    type: 'Array.<(string|boolean|number)>',
-                    description: 'params passed from the column definition object'
-                }
-            ]
-        },
-        {
-            name:'cell-tooltip-func',
-            acceptsExpression: true,
-            description: 'It must be an expression and resolves as a function, this function should return an array. Basically used to pass required details to display header tooltip',
-            expressionVars: [
-                {
-                    name: 'data',
-                    type: 'string',
-                    description: 'Required details for the cell tooltip'
-                }
-            ]
-        },
-        {
-            name:'header-tooltip-func',
-            acceptsExpression: true,
-            description: 'It must be an expression and resolves as a function, this function should return a string. Basically used to pass required details to display header tooltip',
-            expressionVars: [
-                {
-                    name: 'data',
-                    type: 'string',
-                    description: 'Required details for the header tooltip'
-                }
-            ]
-        }
+        description: 'The direction the column data should be sorted in.'
+    },
+    { 
+        name: 'formatter',
+        valueType: 'string',
+        description: 'To add the formatting type for the column'
+    },
+    {
+        name: 'tooltip',
+        acceptsExpression: true,
+        description: 'The tooltip on the cell hover over',
+        expressionVars: [
+            {
+                name: 'cell',
+                type: 'Array.<(string|boolean|number)>',
+                description: 'The cell data on mouse hover on a specific cell'
+            }
+        ]
+    },
+    { 
+        name: 'header-tooltip',
+        acceptsExpression: true,
+        description: 'The tooltip on the column header',
+        expressionVars: [
+            {
+                name: 'column',
+                type: 'Array.<(string|boolean|number)>',
+                description:'The column data on mouse hover on a specific column header'
+            }
+        ]
+    }
     ]
 };

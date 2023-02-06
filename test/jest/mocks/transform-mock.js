@@ -38,7 +38,7 @@ export const cellAttribute = {
       }
   },
   "tooltip": {
-      "rawValue": "=true",
+      "rawValue": "This is tooltip string",
       "expression": {
           "value": "true",
           "isString": false
@@ -61,7 +61,7 @@ export const headerAttribute = {
       }
   },
   "header-tooltip": {
-      "rawValue": "=true",
+      "rawValue": "This is tooltip string",
       "expression": {
           "value": "true",
           "isString": false
